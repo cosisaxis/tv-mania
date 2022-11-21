@@ -1,23 +1,40 @@
-import logo from './logo.svg';
 import './App.css';
+import {useState } from "react";
+import Axios from "axios";
 
 function App() {
+  const [movieName, setMovieName] = useState("");
+  const [movieSearch, setMovieSearch] = useState([]);
+
+  const searchMovies = () => {
+    Axios.get(`https://api.tvmaze.com/search/shows?q=${movieName}`).then((res) => {
+      let movies = res.data
+      setMovieSearch(movies);
+    })
+  }
+   
+
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div>
+        <input onChange={(event) => {setMovieName(event.target.value)}} type="text" />
+        <button onClick={searchMovies}>Search</button>
+      </div>
+
+      <div>
+        {movieSearch.map((shows, index) => {
+          return(
+            <div key={index}> 
+              <p>{shows.score}</p>
+              <p>{shows.show.name}</p>
+            </div>
+          )
+        })}
+
+      </div>
+    
     </div>
   );
 }

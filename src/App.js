@@ -1,34 +1,41 @@
 import './App.css';
-import {useState } from "react";
+import {useEffect, useState } from "react";
 import Axios from "axios";
 
 function App() {
-  const [movieName, setMovieName] = useState("");
-  const [movieSearch, setMovieSearch] = useState([]);
+  const [movie, setMovie] = useState("");
+  const [movies, setMovies] = useState([]);
 
-  const searchMovies = () => {
-    Axios.get(`https://api.tvmaze.com/search/shows?q=${movieName}`).then((res) => {
-      let movies = res.data
-      setMovieSearch(movies);
+  const getMovies = () => {
+    Axios.get(`https://api.tvmaze.com/search/shows?q=${movie}`).then((res) => {
+      setMovies(res.data)
     })
   }
    
+  useEffect(() => {
 
+     console.log(movies);
+  }, [movies])
 
 
   return (
     <div className="App">
       <div>
-        <input onChange={(event) => {setMovieName(event.target.value)}} type="text" />
-        <button onClick={searchMovies}>Search</button>
+        <input onChange={(event) => {setMovie(event.target.value)}} type="text" />
+        <button onClick={getMovies}>Search</button>
       </div>
 
-      <div>
-        {movieSearch.map((shows, index) => {
+      <div className='container'>
+        {movies.map((movie, index) => {
+          const {show, score} = movie
           return(
-            <div key={index}> 
-              <p>{shows.score}</p>
-              <p>{shows.show.name}</p>
+            <div > 
+            <div className='cards' key={index}> 
+              <p>{score}</p>
+              <p>{show.name}</p>
+              <img height='150px' src={show.image?.medium ? show.image.medium : ""}/>
+              {/* <img src={show.image?.original ? show.image.original: ""}/> */}
+            </div>
             </div>
           )
         })}

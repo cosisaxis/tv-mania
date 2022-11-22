@@ -29,14 +29,13 @@ function App() {
         {movies.map((movie, index) => {
           const {show, score} = movie
           return(
-            <div > 
-            <div className='-results-cards' key={index}> 
+            <div className='results-cards' key={index}> 
               <p className='results-score'>{score}</p>
               <p className='results-name'>{show.name}</p>
               <img className='results-image' height='150px' src={show.image?.medium ? show.image.medium : ""}/>
               {/* <img src={show.image?.original ? show.image.original: ""}/> */}
             </div>
-            </div>
+            
           )
         })}
 

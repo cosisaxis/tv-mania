@@ -1,6 +1,6 @@
 .App {
-  text-align: center;
-  display: flex;
+  
+
 }
 
 .App-logo {
@@ -40,4 +40,35 @@
 
 .container{
    display: flex;
+}
+.search-field{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 200px;
+}
+
+.search-input{
+  padding: 10px;
+  width: 900px;
+  border-radius: 25px;
+  border: none;
+  background-color: black;
+  color: white;
+  outline: none;
+}
+
+.search-button{
+  background-color: red;
+  border: none;
+  padding: 10px;
+  border-radius: 25px;
+  margin-left: 3px;
+  width: 100px;
+  font-weight: bold;
+}
+
+.search-button:hover{
+  background-color: black;
+  color: white;
 }

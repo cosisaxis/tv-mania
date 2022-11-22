@@ -20,9 +20,9 @@ function App() {
 
   return (
     <div className="App">
-      <div>
-        <input onChange={(event) => {setMovie(event.target.value)}} type="text" />
-        <button onClick={getMovies}>Search</button>
+      <div className='search-field'>
+        <input className='search-input' onChange={(event) => {setMovie(event.target.value)}} type="text" />
+        <button className='search-button' onClick={getMovies}>Search</button>
       </div>
 
       <div className='container'>
@@ -30,10 +30,10 @@ function App() {
           const {show, score} = movie
           return(
             <div > 
-            <div className='cards' key={index}> 
-              <p>{score}</p>
-              <p>{show.name}</p>
-              <img height='150px' src={show.image?.medium ? show.image.medium : ""}/>
+            <div className='-results-cards' key={index}> 
+              <p className='results-score'>{score}</p>
+              <p className='results-name'>{show.name}</p>
+              <img className='results-image' height='150px' src={show.image?.medium ? show.image.medium : ""}/>
               {/* <img src={show.image?.original ? show.image.original: ""}/> */}
             </div>
             </div>

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Creepster&display=swap');
+
 .App {
   
 
@@ -37,6 +39,13 @@
     transform: rotate(360deg);
   }
 }
+.headings{
+  text-align: center;
+  color: #EEEEEE;
+  font-size: 100px;
+  margin-top: 100px;
+  font-family: 'Creepster', cursive;
+}
 
 .container{
    display: flex;
@@ -49,7 +58,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 200px;
+  margin-top: 60px;
 }
 
 .search-input{
@@ -57,33 +66,101 @@
   width: 900px;
   border-radius: 25px;
   border: none;
-  background-color: black;
-  color: white;
+  background-color: #EEEEEE;
+  color: black;
   outline: none;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: 'Creepster', cursive;
 }
 
 .search-button{
-  background-color: red;
+  background-color: #DC5F00;
   border: none;
   padding: 10px;
   border-radius: 25px;
   margin-left: 3px;
   width: 100px;
   font-weight: bold;
+  font-family: 'Creepster', cursive;
+  font-size: 20px;
 }
 
 .search-button:hover{
-  background-color: black;
+  background-color: #CF0A0A;
   color: white;
 }
 
 .results-cards{
   
   /* grid-template-columns: 6fr 6fr; */
- margin: 20px;
+  margin: 20px;
   padding: 10px;
-  width: 200px;
-  height: 290px;
-  background-color: red;
+  width: 220px;
+  height: 300px;
+  border-radius: 25px;
+  background-color: #EEEEEE;
+  font-family: 'Audiowide', cursive;
+}
+
+.results-cards:hover{
+  background-color: #000000;
+  color: #CF0A0A;
+}
+
+.results-image{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+.results-score{
+  text-align: center;
+  color: #735F32;
+  font-size: large;
+  font-weight: bold;
+}
+
+.results-name{
+  text-align: center;
+  color: #735F32;
+  font-size: large;
+  font-weight: bold;
+}
+
+.results-button{
+  margin-left: 50px ;
+  background-color: #DC5F00;
+  font-family: 'Creepster', cursive;
+  border: none;
+  padding: 10px;
+  border-radius: 25px;
+  width: 100px;
+  font-weight: bold;
+  font-size: 15px;
+}
+.results-button:hover{
+  background-color: #735F32;
+  color: #000000;
+}
+
+
+
+
+.results-link{
+  text-decoration: none;
+  color: white;
+}
+
+
+@media only screen and (max-width: 600px)  {
+  .headings{
+    font-size: 50px;
+  }
+  
+  .search-input{
+    width: 300px;
+  }
 }
 

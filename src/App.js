@@ -20,6 +20,7 @@ function App() {
 
   return (
     <div className="App">
+      <h1 className='headings'>Moviepedia</h1>
       <div className='search-field'>
         <input className='search-input' onChange={(event) => {setMovie(event.target.value)}} type="text" />
         <button className='search-button' onClick={getMovies}>Search</button>
@@ -30,9 +31,13 @@ function App() {
           const {show, score} = movie
           return(
             <div className='results-cards' key={index}> 
-              <p className='results-score'>{score}</p>
-              <p className='results-name'>{show.name}</p>
-              <img className='results-image' height='150px' src={show.image?.medium ? show.image.medium : ""}/>
+              <img className='results-image' height='150px' width='150px' src={show.image?.medium ? show.image.medium : "https://images.wondershare.com/repairit/aticle/2021/07/resolve-images-not-showing-problem-1.jpg"}/>
+              
+              <p className='results-score'>Rating: {score}</p>
+              <p className='results-name'>Name: {show.name}</p>
+              <button className='results-button'><a className='results-link' href={show.url}>Learn More</a></button>
+              
+              
               {/* <img src={show.image?.original ? show.image.original: ""}/> */}
             </div>
             
